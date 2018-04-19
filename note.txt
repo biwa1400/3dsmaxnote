@@ -1,0 +1,104 @@
+6 物体模式选择方法
+	1. 按名称选择
+	2. 按颜色选择
+	3. 反向选择
+	4. 框选 (2 中模式)
+ 只有在子模式下的选择
+	1. 忽略背面
+	2. 点选面
+	3. 按角度
+	4. 收缩 生长
+	5. 环形 延伸 (必须为四边形) (边模式下可用)
+ 预选 (multi 可自动在点、多边形间切换)
+ 右键转换选择
+ 软选择
+
+7 多边形物体光滑的方法及原理
+	近似光滑 --- 多边形模式（sq号）
+	细分光滑 --- mesh smooth 以 editmesh 进行添加线的显示
+		操作：加点连线，进行细分 + 统一光滑群组号
+		其他方法：TurboSmooth(可控制能力差一些)
+		HSPS (局部光滑)
+
+8. 
+	物体加点 ---- 边模式，ring, connect
+	有过度的挤出 ---- 挤出+缩放+挤出
+
+9. 元素的合并
+	1. 将两个物体合并为一个物体 attach
+	   分离两个物体 detach
+	2. 把两个元素合并 ---- 焊接点
+		weld 自动焊接 target weld 手动焊接
+
+10. 复制和对称
+	1. Instance 双向信息传递 (命令栈，不包括基本操作)
+		XForm 记录基本操作 Gizmo
+	2. Reference 单项信息传递
+		参考线以上信息不传递
+	3. 坐标原点
+		使用自己的坐标
+		使用选择中心点
+		使用屏幕坐标原点
+	4. 镜像+焊接点 -> 制作对称模型
+
+11. 布线
+	1. 点连线 cut 命令
+	2. 点成面 create 命令
+	3. 对称命令 symmetry
+	4. 五星点 三角面 动画会终止
+
+12. 光滑
+	1. TurboSmooth 
+	2. HSDS 局部光滑快捷，分级调整
+	3. MeshSmooth 
+		a. classic 从交接地方开始，向四周扩张 
+			Relax 松弛 
+			Smoothmess 减少面数 
+		b. QuadOutout 
+		c. NURMS 细分曲面 
+			可以调整 weight 点权重
+20 点模式
+	1. 选择 by vertex 选择点，可以把与点相关的边也一起选中
+	2. Ignore Backfacing 忽略背面
+	3. By Angle 根据角度选择 面与面，(多边形模式) 不超过指定度数
+	4. proview selection 预览选择
+	5. 软选择 (喷绘选择)
+	6. execute 挤出 产生基面
+	7. connect 选择两个点， 中间连线
+
+21 
+	1. 对边切角
+	2. 在边模式下编辑三角面
+	3. 边界开放桥接
+	4. outline 缩放 几乎不改变形状
+	   Bevel 挤出并缩放
+	   Inset 轮廓
+	5. Hinge From Edge 产生铰链
+	6. Extrude From Edge 按照二维线挤出
+	7. AutoSmooth 自动按角度产生群组号
+	8. Flip 反转反正面
+
+22
+	不进入任何模式，通用的命令
+	1. repeat last 重复上一次的命令
+	2. contrcints 约束 只能沿着边 面 法线 移动
+	3. create 
+		点模式 建立孤立点 孤立点可以形成面，但不可以形成边
+		边模式 只能在已存在的面上建立边
+		多边形模式 直接生成点和多边形，加快速度
+	4. detach 分离到元素，物体
+	5. 焊接点可以把 两个 element 变成 一个
+	6. collaps 塌陷 合并 把所有的点焊接成一个点
+	7. QuickSlice 快速切割 --- 类似选面 cut
+	   split 打断 被切物体被打断成两个元素
+
+23
+	1. Tesselate 细化 --- 添加更多的线，但有角度的面不做圆滑处理
+	2. Make Plannar --- 拍平 (view Align 与当前视图对齐) (Grid Align 与栅格对齐)
+	3. Relax 放松 --- 结构线更加均匀，点与点更趋向于平面
+	4. Hide Select --- 隐藏选择
+	5. 所选内容的保存 --- 上方偏右
+	6. Subdivision surface --- 细分曲面 与 meshSmooth 功能类似
+	7. Subdivision displacement --- 细分置换 置换与置换贴图
+	8. Paint Peformation --- 喷绘变形
+
