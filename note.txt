@@ -102,3 +102,14 @@
 	7. Subdivision displacement --- 细分置换 置换与置换贴图
 	8. Paint Peformation --- 喷绘变形
 
+24 制作足球 排球
+	命令堆面板
+	1. 针 固定
+	2. 显示最终结果
+	3. 独立
+	4. 按钮
+	制作
+		边 split 分离到元素
+		spherify 球形化
+		
+
